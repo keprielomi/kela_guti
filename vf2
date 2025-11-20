@@ -1,0 +1,47 @@
+//Calling a Virtual Function Through a Base Class Reference
+// Calling a Virtual Function Through a Base Class Reference
+#include <iostream>
+using namespace std;
+
+// Base class
+class base {
+public:
+    // virtual function
+    virtual void vfunc() {
+        cout << "This is base's vfunc().\n";
+    }
+};
+
+// Derived class 1
+class derived1 : public base {
+public:
+    void vfunc() {
+        cout << "This is derived1's vfunc().\n";
+    }
+};
+
+// Derived class 2
+class derived2 : public base {
+public:
+    void vfunc() {
+        cout << "This is derived2's vfunc().\n";
+    }
+};
+
+// Function accepting a base class reference
+// Demonstrates runtime polymorphism
+void f(base &r) {
+    r.vfunc(); // calls the correct overridden version
+}
+
+int main() {
+    base b;
+    derived1 d1;
+    derived2 d2;
+
+    f(b);   // Calls base::vfunc()
+    f(d1);  // Calls derived1::vfunc()
+    f(d2);  // Calls derived2::vfunc()
+
+    return 0;
+}
