@@ -3,6 +3,8 @@
 #include<string>
 using namespace std;
 
+
+//apok kela
 class conversion {
 private:
     int a;
